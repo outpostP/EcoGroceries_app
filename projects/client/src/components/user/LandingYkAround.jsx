@@ -8,9 +8,10 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ListProduct from "../admin/ListProduct";
+import ListProduct from "../user/ListProductYK";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 const getReverseGeolocation = async (latitude, longitude) => {
   try {
@@ -110,20 +111,21 @@ const LandingYkAround = () => {
         textShadow="0px 2px 4px rgba(0, 0, 0, 0.5)"
         pb={10}
       >
-        <Text fontSize="2xl" fontWeight={"semibold"} textAlign="center">
+        <Text fontSize={["md", "2xl"]} fontWeight={"semibold"} textAlign="center">
           Your Current Position:
         </Text>
-        <Text bg={"teal.500"} px={3} py={1} color={"white"} fontWeight="bold" mb={5}>
+        <Text bg={"teal.500"} mx={'5'} px={3} py={1} color={"white"}  fontSize={["xs", "xl"]} fontWeight="bold" >
           {userAddress}
         </Text>
-        <Heading fontSize="4xl" fontWeight={"bold"}  textAlign="center">
+        <Heading fontSize={["md", "4xl"]} fontWeight={"bold"} textAlign="center">
           Yogyakarta EcoGroceries
         </Heading>
-        <Text fontSize="xl" fontWeight={"semibold"} mt={4} mb={5} textAlign="center">
+        <Text fontSize={["xs", "xl"]} fontWeight={"semibold"} mt={1} mb={5} textAlign="center">
           Your One-Stop Shop for Eco-Friendly Products
         </Text>
         <ListProduct />
       </Box>
+      <Footer />
     </>
   );
 };

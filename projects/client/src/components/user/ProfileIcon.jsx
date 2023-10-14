@@ -1,4 +1,3 @@
-// import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -14,20 +13,14 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { BsFillCartCheckFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import CartModal from "./Cart"
 import axios from "axios";
-// import UserProfile from "../../pages/user/UserProfile"
-// import { useDispatch } from "react-redux";
-// import { logoutSuccess } from "../../redux/reducer/AuthReducer";
 
 
 
 const Profile = () => {
-  // const dispatch = useDispatch();
   const [userData, setUserData] = useState({ name: '', avatar: '' });
-  const navigate = useNavigate();
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   const openCartModal = () => {
@@ -39,11 +32,8 @@ const Profile = () => {
   };
   
   const handleLogout = () => {
-    // dispatch(logoutSuccess(localStorage.token));
-    // navigate("/");
     localStorage.removeItem("token");
     window.location.href = 'http://localhost:3000/';
-    // window.location.reload();
   };
 
   useEffect (() => {
@@ -57,10 +47,8 @@ const Profile = () => {
         });
 
         const { name, avatar } = res.data.data;
-        // console.log(res.data.data.avatar)
         setUserData({ name, avatar });
       } catch (error) {
-        // console.log(error);
       }
     };
 

@@ -9,19 +9,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Admin.init({
+    user_name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    id_branch: DataTypes.INTEGER, 
     adminSuper: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false, 
+      defaultValue: false,
     },
     isActive: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true, 
+      defaultValue: true,
     },
     // id_branch: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    updatedAt: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Admin',
